@@ -30,6 +30,7 @@ class ImportController extends Controller
                     ]);
             }
         });
+
         return Tracker::all();
     }
 }

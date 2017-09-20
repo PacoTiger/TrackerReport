@@ -38,19 +38,19 @@
                                     <!-- Delete Button -->
                                     <td>
 
-                                        <form action="{{ url('task/'.$tracker->id) }}" method="POST">
+                                        <form action="{{ url('speaker/'.$tracker->id) }}" method="GET">
                                             {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
+
 
                                             <button type="submit" id="delete-task-{{ $tracker->id }}" class="btn btn-danger">
-                                                <i class="fa fa-btn fa-trash"></i>Delete
+                                                <i class="fa fa-btn fa-trash"></i>Info
                                             </button>
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
-                            {{ $trackers->links() }}
+
                         </table>
                     </div>
                 </div>
