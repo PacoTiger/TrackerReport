@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', 'TrackerController@index');
+
+//READ
+Route::get('/trackers', 'TrackerController@index');
+Route::get('/speakers', 'SpeakerController@index');
+
+
+
+
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+//CREATE
 Route::get('import', 'ImportController@import');

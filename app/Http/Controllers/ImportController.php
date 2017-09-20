@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Tracker;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ImportController extends Controller
 {
     public function import()
     {
+        DB::table('trackers')->truncate();
+
         Excel::load('SLCTdb170720.csv', function($reader) {
 
             foreach ($reader->get() as $tracker) {

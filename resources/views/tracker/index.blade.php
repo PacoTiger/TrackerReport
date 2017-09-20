@@ -22,36 +22,73 @@
 
                             <!-- Table Headings -->
                             <thead>
-                            <th>Task</th>
-                            <th>&nbsp;</th>
+                            <th>Day</th>
+                            <th>Time</th>
+                            <th>Name</th>
+                            <th>Campaing</th>
+                            <th>Leads</th>
+                            <th>Deals</th>
+                            <th>Calls</th>
+                            <th>Phone Time</th>
+                            <th>Seconds per call</th>
                             </thead>
 
                             <!-- Table Body -->
                             <tbody>
                             @foreach ($trackers as $tracker)
                                 <tr>
-                                    <!-- Task Name -->
+                                    <!-- Displaying Day -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->day }}</div>
+                                    </td>
+
+                                    <!-- Displaying Time -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->time }}</div>
+                                    </td>
+
+                                    <!-- Displaying Speaker -->
                                     <td class="table-text">
                                         <div>{{ $tracker->speaker }}</div>
                                     </td>
 
-                                    <!-- Delete Button -->
-                                    <td>
+                                    <!-- Displaying Campaing -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->segmentation }}</div>
+                                    </td>
 
-                                        <form action="{{ url('speaker/'.$tracker->id) }}" method="GET">
-                                            {{ csrf_field() }}
+                                    <!-- Displaying Leads -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->lead }}</div>
+                                    </td>
 
+                                    <!-- Displaying Deals -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->deal }}</div>
+                                    </td>
 
-                                            <button type="submit" id="delete-task-{{ $tracker->id }}" class="btn btn-danger">
-                                                <i class="fa fa-btn fa-trash"></i>Info
-                                            </button>
-                                        </form>
+                                    <!-- Displaying Calls -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->call }}</div>
+                                    </td>
+
+                                    <!-- Displaying Phone Time -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->tMinute }}</div>
+                                    </td>
+
+                                    <!-- Displaying Average -->
+                                    <td class="table-text">
+                                        <div>{{ $tracker->iSecondsAvg }}</div>
                                     </td>
                                 </tr>
+
                             @endforeach
                             </tbody>
 
+
                         </table>
+                        {{ $trackers->links() }}
                     </div>
                 </div>
             @endif
