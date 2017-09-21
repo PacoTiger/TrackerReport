@@ -10,22 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
+//CREATE
+Route::get('import', 'ImportController@import');
 
 //READ
 Route::get('/trackers', 'TrackerController@index');
 Route::get('/speakers', 'SpeakerController@index');
+Route::get('/speakers/{id}', 'SpeakerController@info');
 
 
 
 
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-//CREATE
-Route::get('import', 'ImportController@import');
+
+
+

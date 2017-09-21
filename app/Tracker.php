@@ -17,5 +17,6 @@ class Tracker extends Model
                             'deal',
                             'iSegundos',
                             'tAvg',
-                            'iSecondsAvg'];
+                            'iSecondsAvg'
+                            ];
 }

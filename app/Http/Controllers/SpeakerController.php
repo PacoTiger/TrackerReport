@@ -4,29 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Speaker;
+use App\Tracker;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-
-
+use Maatwebsite\Excel\Facades\Excel;
 
 class SpeakerController extends Controller
 {
     public function index()
     {
-        DB::table('speakers')->truncate();
+        $speakersInTrackers = DB::table('trackers')
+                                        ->orderBy('speaker')
+                                        ->get()
+                                        ->unique('speaker');
 
-        $trackers = DB::table('trackers')
-                            ->get()
-                            ->unique('speaker');
+        return view('speakers.index', ['speakers' => $speakersInTrackers]);
+    }
 
-        foreach ($trackers as $tracker) {
-            Speaker::create([
-                'name' => $tracker->speaker
-            ]);
-        }
+    public function info(Tracker $id)
+    {
 
-        $speakers = DB::table('speakers')->get();
 
-        return view('speakers.index', ['speakers' => $speakers]);
+        $trackers = DB::table('trackers')->where('speaker', '=', $id->speaker )->get();
+        $sumLead = $trackers->sum('lead');
+        $sumDeal = $trackers->sum('deal');
+        $sumCall = $trackers->sum('call');
+        $avg = $trackers->avg('iSecondsAvg');
+        dd($trackers, $sumLead, $sumDeal, $sumCall, $avg);
+
+
+        //return view('speakers.details', ['trackers' => $trackers]);
     }
 }

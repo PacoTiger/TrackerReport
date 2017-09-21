@@ -32,14 +32,14 @@
                                 <tr>
                                     <!-- Task Name -->
                                     <td class="table-text">
-                                        <div>{{ $speaker->name }}</div>
+                                        <div>{{ $speaker->speaker }}</div>
                                     </td>
 
                                     <!-- Delete Button -->
                                     <td>
 
-                                        <form action="{{ url('speaker/'.$speaker->id) }}" method="GET">
-                                            {{ csrf_field() }}
+                                        <form action="{{ url('speakers/'.$speaker->id) }}" method="GET">
+
 
 
                                             <button type="submit" id="delete-task-{{ $speaker->id }}" class="btn btn-danger">
