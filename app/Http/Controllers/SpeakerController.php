@@ -30,9 +30,15 @@ class SpeakerController extends Controller
         $sumDeal = $trackers->sum('deal');
         $sumCall = $trackers->sum('call');
         $avg = $trackers->avg('iSecondsAvg');
-        dd($trackers, $sumLead, $sumDeal, $sumCall, $avg);
+        $speaker = $id->speaker;
+        //dd($trackers, $sumLead, $sumDeal, $sumCall, $avg);
 
 
-        //return view('speakers.details', ['trackers' => $trackers]);
+        return view('speakers.details', ['speaker' => $speaker,
+                                                'sumLead' => $sumLead,
+                                                'sumDeal' => $sumDeal,
+                                                'sumCall' => $sumCall,
+                                                'avg' => $avg
+                                            ]);
     }
 }

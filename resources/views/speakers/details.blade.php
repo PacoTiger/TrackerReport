@@ -7,14 +7,12 @@
         <div class="col-sm-offset-2 col-sm-8">
             <div class="panel panel-default">
 
-
             </div>
 
             <!-- Current Tasks -->
-            @if (count($trackers) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Current Tasks
+                        Sumary
                     </div>
 
                     <div class="panel-body">
@@ -22,75 +20,54 @@
 
                             <!-- Table Headings -->
                             <thead>
-                            <th>Day</th>
-                            <th>Time</th>
+                            <th>Date</th>
                             <th>Name</th>
-                            <th>Campaing</th>
-                            <th>Leads</th>
-                            <th>Deals</th>
-                            <th>Calls</th>
-                            <th>Phone Time</th>
+                            <th>Sum of Calls</th>
+                            <th>Sum of Leads</th>
+                            <th>Sum of Deals</th>
                             <th>Seconds per call</th>
                             </thead>
 
                             <!-- Table Body -->
                             <tbody>
-                            @foreach ($trackers as $tracker)
                                 <tr>
-                                    <!-- Displaying Day -->
+                                    <!-- Displaying Date -->
                                     <td class="table-text">
-                                        <div>{{ $tracker->day }}</div>
+                                        <div>All Records</div>
                                     </td>
 
-                                    <!-- Displaying Time -->
+                                    <!-- Displaying Name -->
                                     <td class="table-text">
-                                        <div>{{ $tracker->time }}</div>
+                                        <div>{{ $speaker }}</div>
                                     </td>
 
-                                    <!-- Displaying Speaker -->
+                                    <!-- Displaying Calls-->
                                     <td class="table-text">
-                                        <div>{{ $tracker->speaker }}</div>
-                                    </td>
-
-                                    <!-- Displaying Campaing -->
-                                    <td class="table-text">
-                                        <div>{{ $tracker->segmentation }}</div>
+                                        <div>{{ $sumCall }}</div>
                                     </td>
 
                                     <!-- Displaying Leads -->
                                     <td class="table-text">
-                                        <div>{{ $tracker->lead }}</div>
+                                        <div>{{ $sumLead }}</div>
                                     </td>
 
                                     <!-- Displaying Deals -->
                                     <td class="table-text">
-                                        <div>{{ $tracker->deal }}</div>
+                                        <div>{{ $sumDeal}}</div>
                                     </td>
 
-                                    <!-- Displaying Calls -->
+                                    <!-- Displaying AVG seconds per call -->
                                     <td class="table-text">
-                                        <div>{{ $tracker->call }}</div>
-                                    </td>
-
-                                    <!-- Displaying Phone Time -->
-                                    <td class="table-text">
-                                        <div>{{ $tracker->tMinute }}</div>
-                                    </td>
-
-                                    <!-- Displaying Average -->
-                                    <td class="table-text">
-                                        <div>{{ $tracker->iSecondsAvg }}</div>
+                                        <div>{{ $avg }}</div>
                                     </td>
                                 </tr>
-
-                            @endforeach
                             </tbody>
 
 
                         </table>
                     </div>
                 </div>
-            @endif
+
         </div>
     </div>
 @endsection
