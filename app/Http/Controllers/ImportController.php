@@ -18,7 +18,7 @@ class ImportController extends Controller
 
             foreach ($reader->get() as $tracker) {
                 Tracker::create([
-                    'day' => $tracker->day,
+                    'day' =>$tracker->day,
                     'time' =>$tracker->time,
                     'agent' =>$tracker->agent,
                     'speaker' =>$tracker->speaker,
