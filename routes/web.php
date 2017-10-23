@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('import', 'ImportController@import');
 
 //READ
+Route::view('', 'index');
 Route::get('/trackers', 'TrackerController@index');
 Route::get('/speakers', 'SpeakerController@index');
 Route::get('/speakers/{id}', 'SpeakerController@info');
