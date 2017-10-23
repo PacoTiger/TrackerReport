@@ -24,9 +24,9 @@ class CreateTrackersTable extends Migration
             $table->integer('call');
             $table->time('tMinute');
             $table->integer('deal')->nullable();
-            $table->integer('iSegundos');
-            $table->time('tAvg');
-            $table->integer('iSecondsAvg');
+            $table->integer('iSegundos')->nullable();
+            $table->time('tAvg')->nullable();
+            $table->integer('iSecondsAvg')->nullable();
             $table->timestamps();
         });
     }
